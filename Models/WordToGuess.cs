@@ -4,6 +4,5 @@
     {
         public string word_to_guess { get; set; }
         public string category { get; set; }
-
     }
 }

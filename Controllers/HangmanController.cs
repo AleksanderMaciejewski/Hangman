@@ -11,8 +11,6 @@ namespace Hangman.Controllers
         static public WordToGuessViewModel wordToGuessViewModel { get; set; }
 
 
-
-
         public HangmanController()
         {
             if (letter_list == null)
@@ -79,9 +77,20 @@ namespace Hangman.Controllers
                 {
                     wordToGuessViewModel.win = true;
                 }
-
-
             }
+        }
+
+        public IActionResult NewGameClick(string new_game_button)
+        {
+            dynamic my_models = new ExpandoObject();
+            foreach(var letter in letter_list)
+            {
+                letter.state = true;
+            }
+            my_models.modLetterViewModel = letter_list;
+            wordToGuessViewModel = new WordToGuessViewModel(wordToGuess, 5);
+            my_models.modWordToGuessViewModel = wordToGuessViewModel;
+            return View("Index", my_models);
         }
     }
 }

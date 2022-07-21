@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\olekm\\OneDrive\\Pulpit\\Hangman\\Hangman\\Hangman.csproj": {}
+    "C:\\Users\\olekm\\src\\Hangman\\Hangman\\Hangman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\olekm\\OneDrive\\Pulpit\\Hangman\\Hangman\\Hangman.csproj": {
+    "C:\\Users\\olekm\\src\\Hangman\\Hangman\\Hangman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\olekm\\OneDrive\\Pulpit\\Hangman\\Hangman\\Hangman.csproj",
+        "projectUniqueName": "C:\\Users\\olekm\\src\\Hangman\\Hangman\\Hangman.csproj",
         "projectName": "Hangman",
-        "projectPath": "C:\\Users\\olekm\\OneDrive\\Pulpit\\Hangman\\Hangman\\Hangman.csproj",
+        "projectPath": "C:\\Users\\olekm\\src\\Hangman\\Hangman\\Hangman.csproj",
         "packagesPath": "C:\\Users\\olekm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\olekm\\OneDrive\\Pulpit\\Hangman\\Hangman\\obj\\",
+        "outputPath": "C:\\Users\\olekm\\src\\Hangman\\Hangman\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
