@@ -1,0 +1,64 @@
+﻿<body>
+    <header class="page_header">
+        <h1>Hangman</h1>
+    </header>
+
+    <div class="alerts">
+        @using (Html.BeginForm("LetterClick", "Hangman"))
+        {
+            if (@Model.modWordToGuessViewModel.win == true)
+            {
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Congratulations!</strong> <a>You won! </a>
+                </div>
+            }
+            if (@Model.modWordToGuessViewModel.lose == true)
+            {
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Oh snap!</strong> <a>You lost</a>
+                </div>
+            }
+        }
+
+    </div>
+
+
+    <div class="word">
+        @using (Html.BeginForm("LetterClick", "Hangman"))
+        {
+            <big>Category: @Model.modWordToGuessViewModel.WordToGuess.category</big>
+            <br />
+            for(int i=0;i<@Model.modWordToGuessViewModel.blank_word.Length;i++)
+            {
+                <big>@Model.modWordToGuessViewModel.blank_word[i] </big>
+            }
+            <br />
+            <big>Lives: @Model.modWordToGuessViewModel.lives</big>
+        }
+    </div>
+
+
+    <div class="keyboard" style="position:relative; top: 500px">
+        @using (Html.BeginForm("LetterClick", "Hangman"))
+        {
+            for (int i = 0; i < Model.modLetterViewModel.Count; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    <br />
+                }
+                if (Model.modLetterViewModel[i].state == true)
+                {
+                    <button class="btn btn-outline-dark" type="submit" name="button" style="width: 70px; height: 40px" value="@Model.modLetterViewModel[i].value">@Model.modLetterViewModel[i].value</button>
+                }
+                else
+                {
+                    <button class="btn btn-dark" disabled type="submit" name="button" style="width: 70px; height: 40px" value="@Model.modLetterViewModel[i].value">@Model.modLetterViewModel[i].value</button>
+                }
+            }
+        }
+    </div>
+</body>
+
