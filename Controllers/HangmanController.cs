@@ -9,7 +9,7 @@ namespace Hangman.Controllers
         static public List<LetterViewModel> letter_list { get; set; }
         static public WordToGuess wordToGuess { get; set; }
         static public WordToGuessViewModel wordToGuessViewModel { get; set; }
-
+        static public List<string> usedBadLetters { get; set; }
 
         public HangmanController()
         {
@@ -24,6 +24,7 @@ namespace Hangman.Controllers
                 wordToGuess.word_to_guess = "FOOTBALL";
                 wordToGuess.category = "SPORT";
                 wordToGuessViewModel = new WordToGuessViewModel(wordToGuess, 5);
+                usedBadLetters = new List<string>();
             }
         }
 
@@ -55,12 +56,16 @@ namespace Hangman.Controllers
         {
             if (!wordToGuess.word_to_guess.Contains(button))
             {
-                wordToGuessViewModel.lives -= 1;
-                if (wordToGuessViewModel.lives == 0)
+                if (!usedBadLetters.Contains(button))
                 {
-                    wordToGuessViewModel.lose = true;
+                    usedBadLetters.Add(button);
+                    wordToGuessViewModel.lives -= 1;
+                    if (wordToGuessViewModel.lives == 0)
+                    {
+                        wordToGuessViewModel.lose = true;
+                        usedBadLetters.Clear();
+                    }
                 }
-
             }
             else
             {
@@ -76,6 +81,7 @@ namespace Hangman.Controllers
                 if (!wordToGuessViewModel.blank_word.Contains('_'))
                 {
                     wordToGuessViewModel.win = true;
+                    usedBadLetters.Clear();
                 }
             }
         }
@@ -83,7 +89,7 @@ namespace Hangman.Controllers
         public IActionResult NewGameClick(string new_game_button)
         {
             dynamic my_models = new ExpandoObject();
-            foreach(var letter in letter_list)
+            foreach (var letter in letter_list)
             {
                 letter.state = true;
             }
