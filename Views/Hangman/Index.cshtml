@@ -37,6 +37,10 @@
                     <br />
                     <big>Lives: @Model.modWordToGuessViewModel.lives</big>
                     <br />
+                    if (Model.modWordToGuessViewModel.lose == true)
+                    {
+                        Model.modWordToGuessViewModel.blank_word = Model.modWordToGuessViewModel.WordToGuess.word_to_guess;
+                    }
                     for (int i = 0; i < @Model.modWordToGuessViewModel.blank_word.Length; i++)
                     {
                         <big style="font-size: 50px;position:relative; left: 150px; top: 100px">@Model.modWordToGuessViewModel.blank_word[i]</big>

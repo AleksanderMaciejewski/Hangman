@@ -1,4 +1,5 @@
 ﻿using Hangman.Models;
+using Hangman.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Dynamic;
 
@@ -21,8 +22,8 @@ namespace Hangman.Controllers
                     letter_list.Add(new LetterViewModel(letter.ToString()));
                 }
                 wordToGuess = new WordToGuess();
-                wordToGuess.word_to_guess = "FOOTBALL";
-                wordToGuess.category = "SPORT";
+                var hangmanWordProvider = new HangmanWordProvider();
+                wordToGuess = hangmanWordProvider.GetRandomWord();
                 wordToGuessViewModel = new WordToGuessViewModel(wordToGuess, 5);
                 usedBadLetters = new List<string>();
             }
@@ -94,6 +95,8 @@ namespace Hangman.Controllers
                 letter.state = true;
             }
             my_models.modLetterViewModel = letter_list;
+            var hangmanWordProvider = new HangmanWordProvider();
+            wordToGuess = hangmanWordProvider.GetRandomWord();
             wordToGuessViewModel = new WordToGuessViewModel(wordToGuess, 5);
             my_models.modWordToGuessViewModel = wordToGuessViewModel;
             return View("Index", my_models);

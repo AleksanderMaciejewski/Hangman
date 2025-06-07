@@ -1,0 +1,45 @@
+# Katalogi systemowe i konfiguracje IDE
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pliki binarne i kompilowane
+bin/
+obj/
+out/
+
+# Pakiety NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Konfiguracje i logi
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Production.json
+appsettings.Staging.json
+*.log
+logs/
+
+# Pliki tymczasowe
+*.tmp
+*.cache
+*.bak
+
+# Pliki publikacji
+publish/
+wwwroot/
+dist/
+
+# Docker i kontenery
+docker-compose.override.yml
+.env
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
